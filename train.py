@@ -41,7 +41,16 @@ dqn.compile(Adam(learning_rate=1e-3), metrics=["mae"])
 dqn.fit(env, nb_steps=100000, visualize=False, verbose=1)
 
 # saving the model
-dqn.save_weights("dqn_weights.h5f", overwrite=True)
+dqn.save_weights("dqn_poultryhealth_weights.h5f", overwrite=True)
+
+# # Train the agent using DQN
+# model = DQN("MlpPolicy", env, verbose=1, learning_rate=1e-3, buffer_size=50000, exploration_fraction=0.1, batch_size=64)
+
+# # Train the model (you can increase total_timesteps to 100,000 or more)
+# model.learn(total_timesteps=100000)
+
+# # Save the trained model
+# model.save("policy")
 
 # evaluating the trained model
 scores = dqn.test(env, nb_episodes=10, visualize=False)
